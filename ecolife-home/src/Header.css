@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+  }
+  
+  .right-section {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-end; 
+  }
+  
+  .language-switcher {
+    display: flex; 
+    margin-bottom: 10px; 
+  }
+  
+  .language-switcher button {
+    margin: 0 5px; 
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .logo img {
+    height: 50px;
+  }
+  
+  .profile-icon img {
+    height: 60px; 
+    width: 60px;
+    border-radius: 50%;
+  }
+  
