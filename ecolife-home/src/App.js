@@ -6,7 +6,7 @@ function App() {
   const [isListVisible, setIsListVisible] = useState(false);
 
   const handleSearchClick = () => {
-    setIsListVisible(true); // Показать список при нажатии
+    setIsListVisible(true); // покащывать кнопку
   };
 
   return (
