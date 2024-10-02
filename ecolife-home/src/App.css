@@ -1,9 +1,23 @@
+* {
+  box-sizing: border-box; 
+}
+
+html, body {
+  overflow-x: hidden; 
+  margin: 0;
+  padding: 0;
+  width: 100%; 
+}
+
 .app {
   height: 100vh; 
   display: flex;
   flex-direction: column;
   position: relative;
+  max-width: 100vw; 
+  overflow-x: hidden; 
 }
+
 
 .search-section {
   display: flex;
