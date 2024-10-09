@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './Header';
-import { Menu } from 'antd';  
+import { Menu } from 'antd';
+import Footer from './Footer';  
 import { MailOutlined } from '@ant-design/icons';
 import './App.css';
 
@@ -49,8 +50,7 @@ function App() {
             </div>
           )}
         </div>
-
-        <div className="right-sidebar"></div>
+        <Footer/>
       </div>
     </div>
   );
