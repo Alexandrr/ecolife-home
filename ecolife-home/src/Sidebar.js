@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Menu } from 'antd';
-import { AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+import { Button, Menu } from 'antd';
+import { AppstoreOutlined, MenuFoldOutlined, MenuUnfoldOutlined, SettingOutlined } from '@ant-design/icons';
 import './Sidebar.css';
 
 const items = [
@@ -30,39 +30,40 @@ const items = [
   },
 ];
 
-function Sidebar({ handleMenuClick }) {
-  const [showInput, setShowInput] = useState(false);
+function Sidebar({CodeSelect}) {
+  const [collapse, setCollapse] = useState(false);
 
-  const handleMenuSelect = ({ key }) => {
-    if (key === '1') {
-      setShowInput(true);
-    } else {
-      setShowInput(false);
-    }
+  const toggleCollapse = () => {
+    setCollapse(!collapse)
   };
 
-  return (
-    <div className='Sidebar'>
-      <Menu
-        mode="inline"
-        style={{ width: 256 }}
-        onClick={handleMenuClick}
-        onSelect={handleMenuSelect}
-        defaultOpenKeys={['sub1']}
-        items={items}
-      />
+  const handleMenuSelect = ({key}) => {
+    if(key === '1') {
+      CodeSelect(true) ; 
+    } else {
+      CodeSelect(false)
+    }
+  } ;
 
-      {showInput && (
-        <div className="search-section">
-          <label htmlFor="searchInput">Введите код:</label>
-          <input
-            type="text"
-            id="searchInput"
-            placeholder="Введите код товара"
-            style={{ marginTop: '10px', width: '100%' }}
-          />
-        </div>
-      )}
+  return (
+
+    <div className='Sidebar'>
+      <Button 
+      type = 'primary'
+      onClick={toggleCollapse}
+      style={{marginBottom : 16}} >
+
+      {collapse ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>} {/**/}
+      </Button>
+
+      <Menu
+       mode="inline"
+       style={{ width: 256 }}
+       onSelect={handleMenuSelect}
+       defaultOpenKeys={['sub1']}
+       items={items}
+       inlineCollapsed={collapse} // Меню сворачивается и разворачивается
+      />
     </div>
   );
 }

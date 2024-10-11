@@ -7,31 +7,23 @@ import { Breadcrumb } from 'antd';
 import './App.css';
 
 function App() {
-  const [activeMenu, setActiveMenu] = useState(null);
+  const [showInput, setShowInput] = useState(false);
 
-  const handleMenuClick = (e) => {
-    setActiveMenu(e.key);  // Определяем, какая опция была выбрана
+  const handleMenuSelect = (selected) => {
+    setShowInput(selected);  // Определяем, какая опция была выбрана
   };
 
   return (
-    <div className="app">
-      <Header />
+   <div className='app'>
+    <Header/>
 
-      <div className='breadcrumbs'>
-     <Breadcrumb>
-        <Breadcrumb.Item>Home</Breadcrumb.Item>
-        <Breadcrumb.Item>List</Breadcrumb.Item>
-        <Breadcrumb.Item>App</Breadcrumb.Item>
-      </Breadcrumb>
-      </div>
-
-
-      <div className="content">
-        <Sidebar handleMenuClick={handleMenuClick} />
-        <Content activeMenu={activeMenu} />
-      </div>
-      <Footer />
+    <div className='content'>
+    <Sidebar CodeSelect={handleMenuSelect}/>
+    <Content showInput={showInput}/>
     </div>
+
+    <Footer/>
+   </div>
   );
 }
 
