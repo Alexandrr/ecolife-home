@@ -23,14 +23,6 @@ html, body {
   width: 100%;
 }
 
-.footer {
-  background-color: #f1f1f1;
-  padding: 20px;
-  text-align: center;
-  width: 100%;
-  margin-top: auto; 
-}
-
 .left-sidebar {
   width: 200px;
   background-color: #f1f1f1;
@@ -77,3 +69,12 @@ html, body {
 .menu-button:hover {
   background-color: #0056b3;
 }
+
+.breadcrumbs {
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+  font-size: 14px;
+}
+
+
+

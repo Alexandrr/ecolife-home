@@ -1,9 +1,9 @@
 .header {
   display: flex;
-  justify-content: space-between; /* Лого слева, кнопки и маленький логотип справа */
+  justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #f8f8f8;
+  background-color: #001529; 
   width: 100%;
 }
 
@@ -12,15 +12,32 @@
   align-items: center;
 }
 
+.main-nav {
+  margin-right: 65%;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;  /* Расстояние между элементами навигации */
+}
+
+.main-nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+
+.main-nav ul li a:hover {
+  background-color: #0056b3;
+  border-radius: 4px;
+}
+
 .right-section {
   display: flex;
   align-items: center;
-  gap: 10px; 
-}
-
-.language-switcher {
-  display: flex;
-  gap: 5px; /* Отступ между кнопками RU и AZ */
+  gap: 10px;
 }
 
 .language-switcher button {
