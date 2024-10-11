@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Button, Menu } from 'antd';
-import { AppstoreOutlined, MenuFoldOutlined, MenuUnfoldOutlined, SettingOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, MenuFoldOutlined, MenuUnfoldOutlined, SearchOutlined, SettingOutlined } from '@ant-design/icons';
 import './Sidebar.css';
 
 const items = [
   {
-    key: 'sub1',
-    label: 'Подбор товара',
+    key : 'sub1',
+    label : 'Подбор товара',
+    icon : <SearchOutlined/> , 
     children: [
       {
         key: '1',
