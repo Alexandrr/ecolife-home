@@ -7,18 +7,18 @@ import { Breadcrumb } from 'antd';
 import './App.css';
 
 function App() {
-  const [breadcrumbItems, setBreadcrumbItems] = useState(['Home', 'List', 'App']);
+  const [breadcrumbItems, setBreadcrumbItems] = useState(['Home']);
   const [showInput, setShowInput] = useState(false);
 
-  const handleCodeSelect = (selected, path) => {
-    setShowInput(selected);
-    setBreadcrumbItems(path);  // Обновляем хлебные крошки в зависимости от выбора
+  const handleMenuSelect = (key, name) => {
+    setShowInput(key === '1'); 
+    setBreadcrumbItems(['Home', name]);  // Обновляем хлебные крошки как массив
   };
 
   return (
     <div className="app">
       <Header />
-      
+
       <div className="breadcrumbs">
         <Breadcrumb>
           {breadcrumbItems.map((item, index) => (
@@ -28,7 +28,7 @@ function App() {
       </div>
 
       <div className="content">
-        <Sidebar CodeSelect={(selected) => handleCodeSelect(selected, ['Home', 'Подбор товара', 'По коду'])} />
+        <Sidebar MenuSelect={handleMenuSelect} /> 
         <Content showInput={showInput} />
       </div>
 

@@ -5,65 +5,46 @@ import './Sidebar.css';
 
 const items = [
   {
-    key : 'sub1',
-    label : 'Подбор товара',
-    icon : <SearchOutlined/> , 
+    key: 'sub1',
+    label: 'Подбор товара',
+    icon: <SearchOutlined />,
     children: [
-      {
-        key: '1',
-        label: 'По коду',
-      },
-      {
-        key: '2',
-        label: 'По названию',
-      },
+      { key: '1', label: 'По коду' },
+      { key: '2', label: 'По названию' },
     ],
   },
-  {
-    key: 'sub2',
-    label: 'История',
-    icon: <AppstoreOutlined />,
-  },
-  {
-    key: 'sub3',
-    label: 'Избранное',
-    icon: <SettingOutlined />,
-  },
+  { key: 'sub2', label: 'История', icon: <AppstoreOutlined /> },
+  { key: 'sub3', label: 'Избранное', icon: <SettingOutlined /> },
 ];
 
-function Sidebar({CodeSelect}) {
+function Sidebar({ MenuSelect }) {
   const [collapse, setCollapse] = useState(false);
 
   const toggleCollapse = () => {
-    setCollapse(!collapse)
+    setCollapse(!collapse);
   };
 
-  const handleMenuSelect = ({key}) => {
-    if(key === '1') {
-      CodeSelect(true) ; 
-    } else {
-      CodeSelect(false)
-    }
-  } ;
+  const handleMenuSelect = ({ key, domEvent }) => {
+    const selectedText = domEvent.target.innerText;  
+    MenuSelect(key, selectedText);  
+  };
 
   return (
-
-    <div className='Sidebar'>
+    <div className={`left-sidebar ${collapse ? 'see' : 'ntsee'}`}>
       <Button 
-      type = 'primary'
-      onClick={toggleCollapse}
-      style={{marginBottom : 16}} >
-
-      {collapse ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>} {/**/}
+        type='primary'
+        onClick={toggleCollapse}
+        style={{ marginBottom: 16 }}
+      >
+        {collapse ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </Button>
 
       <Menu
-       mode="inline"
-       style={{ width: 256 }}
-       onSelect={handleMenuSelect}
-       defaultOpenKeys={['sub1']}
-       items={items}
-       inlineCollapsed={collapse} // Меню сворачивается и разворачивается
+        mode="inline"
+        onSelect={handleMenuSelect}
+        defaultOpenKeys={['sub1']}
+        items={items}
+        inlineCollapsed={collapse}  // Меню сворачивается и разворачивается
       />
     </div>
   );
