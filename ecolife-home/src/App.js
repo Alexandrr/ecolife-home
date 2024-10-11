@@ -7,31 +7,33 @@ import { Breadcrumb } from 'antd';
 import './App.css';
 
 function App() {
+  const [breadcrumbItems, setBreadcrumbItems] = useState(['Home', 'List', 'App']);
   const [showInput, setShowInput] = useState(false);
 
-  const handleMenuSelect = (selected) => {
-    setShowInput(selected);  // Определяем, какая опция была выбрана
+  const handleCodeSelect = (selected, path) => {
+    setShowInput(selected);
+    setBreadcrumbItems(path);  // Обновляем хлебные крошки в зависимости от выбора
   };
 
   return (
-   <div className='app'>
-    <Header/>
-
-    <div className='breadcrumbs'>
-    <Breadcrumb>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
+    <div className="app">
+      <Header />
+      
+      <div className="breadcrumbs">
+        <Breadcrumb>
+          {breadcrumbItems.map((item, index) => (
+            <Breadcrumb.Item key={index}>{item}</Breadcrumb.Item>
+          ))}
         </Breadcrumb>
-    </div>
+      </div>
 
-    <div className='content'>
-    <Sidebar CodeSelect={handleMenuSelect}/>
-    <Content showInput={showInput}/>
-    </div>
+      <div className="content">
+        <Sidebar CodeSelect={(selected) => handleCodeSelect(selected, ['Home', 'Подбор товара', 'По коду'])} />
+        <Content showInput={showInput} />
+      </div>
 
-    <Footer/>
-   </div>
+      <Footer />
+    </div>
   );
 }
 
