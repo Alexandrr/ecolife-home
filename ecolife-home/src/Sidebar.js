@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Menu } from 'antd';
 import { AppstoreOutlined, MenuFoldOutlined, MenuUnfoldOutlined, SearchOutlined, SettingOutlined } from '@ant-design/icons';
-import config from './config.json'; 
 import './Sidebar.css';
 
 const items = [
@@ -20,8 +19,7 @@ const items = [
 
 function Sidebar({ MenuSelect }) {
   const [collapse, setCollapse] = useState(false);
-  const [code , setCode] = useState('');
-  const [Info , setInfo] = useState(null)
+
 
   const toggleCollapse = () => {
     setCollapse(!collapse);
