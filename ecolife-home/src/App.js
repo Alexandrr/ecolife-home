@@ -16,9 +16,10 @@ function App() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({}),})
+      body: JSON.stringify({lang : 'string' , code:'string' , searchCriteria:'string'}),})
     .then(response => response.json())
     .then(data => console.log(data))
+    .catch(error => console.error('Ошибка:', error));  // вывод ошибок
   }, []);
 
 
