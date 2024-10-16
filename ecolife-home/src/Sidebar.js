@@ -25,6 +25,8 @@ function Sidebar({ MenuSelect }) {
     setCollapse(!collapse);
   };
 
+  
+
   const handleMenuSelect = ({ key, domEvent }) => {
     const selectedText = domEvent.target.innerText;  
     MenuSelect(key, selectedText);  

@@ -10,11 +10,12 @@ function App() {
   const [breadcrumbItems, setBreadcrumbItems] = useState(['Home']);
   const [showInput, setShowInput] = useState(false);
 
-  
+
   const handleMenuSelect = (key, name) => {
     setShowInput(key === '1'); 
     setBreadcrumbItems(['Home', name]);  // Обновляем хлебные крошки как массив
   };
+  
 
   return (
     <div className="app">
