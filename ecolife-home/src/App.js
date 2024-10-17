@@ -9,17 +9,19 @@ import './App.css';
 function App() {
   const [breadcrumbItems, setBreadcrumbItems] = useState(['Home']);
   const [showInput, setShowInput] = useState(false);
+  const [language , setLanguage] = useState('ru');
+  const [searchCriterias , setSearchCriterias] = useState('code')
 
 
   const handleMenuSelect = (key, name) => {
     setShowInput(key === '1'); 
     setBreadcrumbItems(['Home', name]);  // Обновляем хлебные крошки как массив
+    setSearchCriterias(key === '1' ? 'code' : 'name') ; // способ поиска 
   };
   
-
   return (
     <div className="app">
-      <Header />
+      <Header onLanguageChange ={setLanguage} />
 
       <div className="breadcrumbs">
         <Breadcrumb>
@@ -31,7 +33,7 @@ function App() {
 
       <div className="content">
         <Sidebar MenuSelect={handleMenuSelect} /> 
-        <Content showInput={showInput} />
+        <Content showInput={showInput}  lang={language} searchCriterias={searchCriterias} />
       </div>
 
       <Footer />
