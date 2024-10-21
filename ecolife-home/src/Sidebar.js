@@ -33,11 +33,11 @@ function Sidebar({ MenuSelect }) {
   };
 
   return (
-    <div className={`left-sidebar ${collapse ? 'see' : 'notsee'}`}>
+    <div className={`left-sidebar ${collapse ? 'notsee' : 'see'}`}>
       <Button 
         type='primary'
         onClick={toggleCollapse}
-        style={{ marginBottom: 16 }}
+        style={{ marginBottom: 10 }}
       >
         {collapse ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
       </Button>
@@ -47,7 +47,7 @@ function Sidebar({ MenuSelect }) {
         onSelect={handleMenuSelect}
         defaultOpenKeys={['sub1']}
         items={items}
-        inlineCollapsed={collapse}  
+        inlineCollapsed={collapse} 
       />
     </div>
   );

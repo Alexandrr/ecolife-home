@@ -29,7 +29,8 @@ function Content({ showInput , lang , searchCriterias}) {
       {showInput && (
         <div className="search-section">
           <Search placeholder="Введите код товара" 
-          onSearch={onSearch} 
+          onSearch={onSearch}
+          allowClear  
           style={{
             width: 200,
           }}

@@ -1,5 +1,5 @@
 .left-sidebar {
-    width: 200px;
+    width: 10%;
     background-color: #f1f1f1;
     padding: 20px;
     height: 100%;
@@ -8,22 +8,23 @@
   }
   
   .left-sidebar.see {
-    width: 80px;  
+    width: 20%;  
   }
 
-  .left-sidebar.ntsee {
-    width: 200px;  /* Ширина сайдбара при разворачивании */
+  .left-sidebar.notsee {
+    width: 10%;  /* Ширина сайдбара при разворачивании */
+    min-width: 10%;
   }
 
   .ant-menu-item {
     display: flex;
-    align-items: center;
+    align-items: left;
   }
   
   .ant-menu-item .ant-menu-item-icon {
     margin-right: 0;  
   }
   
-  .left-sidebar.see .ant-menu-item .ant-menu-item-icon + span {
+  .left-sidebar.notsee .ant-menu-item .ant-menu-item-icon + span {
     display: none;  /*текст при свёрнутом состоянии */
   }
